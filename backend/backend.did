@@ -1,0 +1,25 @@
+type Testimonial = 
+ record {
+   avatarUrl: text;
+   id: nat;
+   name: text;
+   "text": text;
+ };
+type PortfolioItem = 
+ record {
+   description: text;
+   id: nat;
+   imageUrl: text;
+   title: text;
+ };
+type ContactForm = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+ };
+service : {
+  getPortfolioItems: () -> (vec PortfolioItem) query;
+  getTestimonials: () -> (vec Testimonial) query;
+  submitContactForm: (ContactForm) -> ();
+}
